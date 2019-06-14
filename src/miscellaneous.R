@@ -1,12 +1,36 @@
 ################################################################################################################
 #
-# Script which holds various miscellaneous functions.
+# Script which holds various miscellaneous functions and constants.
 #
 ################################################################################################################
+# CONSTANTS ####################################################################################################
+
+# brexit news sources 
+kApSource <- "https://www.bnnbloomberg.ca/timeline-of-brexit-and-events-leading-to-may-s-departure-1.1270161" 
+kJazzeraSource <- "https://www.aljazeera.com/news/2019/01/brexit-timeline-190115164043103.html" 
+
+# crypto sources 
+kBtcSource <- "https://coinmarketcap.com/currencies/bitcoin/historical-data/?start=20150501&end=20190614"
+kEthSource <- "https://coinmarketcap.com/currencies/ethereum/historical-data/?start=20150501&end=20190614"
+
+# brexit events filenames (news sites)
+kApRawFile <- "raw_events_ap.csv"
+kJazzeraRawFile <- "raw_events_aljazzera.csv"
+
+# fx rates filenames
+kGbpEurRawFile <- "raw_finance_gbpeur.csv"
+kGbpUsdRawFile <- "raw_finance_gbpusd.csv"
+kGbpJpyRawFile <- "raw_finance_gbpjpy.csv"
+
+# crypto filenames 
+kBtcRawFile <- "raw_crypto_usdbtc.csv"
+kEthRawFile <- "raw_crypto_usdeth.csv"
+
+################################################################################################################
+# FUNCTIONS ####################################################################################################
 
 # check if packages are installed then load libraries.
 # https://stackoverflow.com/questions/15155814/check-if-r-package-is-installed-then-load-library
-
 install_load <- function (package1, ...)  {   
   
   # convert arguments to vector
@@ -49,6 +73,5 @@ lubripack <- function(...,silent=FALSE){
     print(res)
   }
 }
-
 ################################################################################################################
 
