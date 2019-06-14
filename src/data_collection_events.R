@@ -1,8 +1,8 @@
 ################################################################################################################
 #
-# downloads data using web scraping (brexit major events) from news agencies 
+# Downloads data using web scraping (brexit major events) from news agencies 
 # data is downloaded from the following sources: BNN Bloomberg/Associated Press & AlJazzera.
-# events are taken from 2 different articles describing brexit major events.
+# events (Jan 13 - Jun 19) are taken from 2 different articles describing brexit major events.
 #
 # BNN Bloomberg/Associated Press: https://www.bnnbloomberg.ca/timeline-of-brexit-and-events-leading-to-may-s-departure-1.1270161
 # AlJazzera: https://www.aljazeera.com/news/2019/01/brexit-timeline-190115164043103.html
@@ -75,8 +75,11 @@ main <- function() {
   jazzera.events <- collect.jazzera() # get from al jazzera 
   
   # save raw results scraped from various news agencies
-  write.table(apnews.events, file= paste("data/", kApFile), row.names=FALSE, col.names=FALSE, eol="\n")
-  write.table(jazzera.events, file= paste("data/", kJazzeraFile), row.names=FALSE, col.names=FALSE, eol="\n")
+  write.table(apnews.events, file=paste("data/raw/", kApFile), row.names=FALSE, col.names=FALSE, eol="\n")
+  write.table(jazzera.events, file=paste("data/raw/", kJazzeraFile), row.names=FALSE, col.names=FALSE, eol="\n")
+  
+  # results saved
+  print("Brexit events data is downloaded from news agencies and saved.")
 }
 
 main() # call main function to execute script 
