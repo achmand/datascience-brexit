@@ -9,5 +9,10 @@ rvest # this requires-> sudo apt-get install libxml2-dev; sudo apt-get install l
 quantmod 
 stringr
 lubridate
+knitr
+IRdisplay
+kableExtra
+
+
 
 
