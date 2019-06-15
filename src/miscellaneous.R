@@ -16,6 +16,7 @@ kEthSource <- "https://coinmarketcap.com/currencies/ethereum/historical-data/?st
 # brexit events filenames (news sites)
 kApRawFile <- "raw_events_ap.csv"
 kJazzeraRawFile <- "raw_events_aljazzera.csv"
+kEventsFile <- "brexit_events.csv" # for cleaned/augmented events
 
 # fx rates filenames
 kGbpEurRawFile <- "raw_finance_gbpeur.csv"
