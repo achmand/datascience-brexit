@@ -22,6 +22,7 @@ kEventsFile <- "brexit_events.csv" # for cleaned/augmented events
 kGbpEurRawFile <- "raw_finance_gbpeur.csv"
 kGbpUsdRawFile <- "raw_finance_gbpusd.csv"
 kGbpJpyRawFile <- "raw_finance_gbpjpy.csv"
+kFxRatesFile <- "fx_rates.csv" # for cleaned/augmented fx rates
 
 # crypto filenames 
 kBtcRawFile <- "raw_crypto_usdbtc.csv"

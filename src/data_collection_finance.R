@@ -6,8 +6,8 @@
 
 # constants (dates for any financial data which will be collected/downloaded)
 # data format yyyy-mm-dd
-kFromDate = "2013-01-01"
-kToDate = "2019-06-13"
+kFromDate = "2012-01-01"
+kToDate = "2019-06-01"
 
 # setup function 
 setup <- function () {

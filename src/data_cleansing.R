@@ -13,12 +13,15 @@ setup <- function () {
   # install/load libraries 
   # stringr: string manipulation
   # lubridate: datetime conversion
-  lubripack("stringr", "lubridate") 
+  lubripack("stringr", "lubridate", "dplyr") 
 }
 
 clean.events <- function () {
   # Cleans and augments raw data taken from various news agencies as a dataframe.
-  
+  #
+  # Returns:
+  #   Cleaned and augmented brexit key events taken from two sources as a dataframe.
+
   # load both events datasets from csv files
   # associated press
   eventsraw.ap <- readLines(paste("data/raw/", kApRawFile)) # load ap events
@@ -56,10 +59,59 @@ clean.events <- function () {
   row.names(eventsdf.merged) <- 1:nrow(eventsdf.merged) # re index row number 
   
   # only get past events not upcoming events 
-  eventsdf.merged <- eventsdf.merged[year(eventsdf.merged$event_date) <= 2019, ] # up to 2019
+  eventsdf.merged <- eventsdf.merged[date(eventsdf.merged$event_date) <= date("2019-06-01"), ] # up to June 19
   
   # returns cleaned and augmented brexit key events taken from two sources as a df
   return(eventsdf.merged)
+}
+
+clean.fx <- function() {
+  # Cleans and augments raw data for different fx rates taken from yahoo finance.
+  #
+  # Returns:
+  #   Cleaned and augmented fx rates for three different pairs (GPB/EUR, GBP/USD, GBP/JPY) as a dataframe.
+  
+  # load fx rates datasets from csv files
+  # GBP/EUR 
+  fxraw.gbpeur <- data.frame(read.csv(paste("data/raw/", kGbpEurRawFile))) # load GBP/EUR raw data
+  fxraw.gbpeur <- select(fxraw.gbpeur, X, GBPEUR.X.Close) # get only Date/Close using dplyr
+  names(fxraw.gbpeur)[1] <- "date" # set column name for date
+  names(fxraw.gbpeur)[2] <- "GBPEUR" # set column name for the close price GBP/EUR
+  # GBP/USD
+  fxraw.gbpusd <- data.frame(read.csv(paste("data/raw/", kGbpUsdRawFile))) # load GBP/USD raw data 
+  fxraw.gbpusd <- select(fxraw.gbpusd, X, GBPUSD.X.Close) # get only Date/Close using dplyr
+  names(fxraw.gbpusd)[1] <- "date" # set column name for date
+  names(fxraw.gbpusd)[2] <- "GBPUSD" # set column name for the close price GBP/USD
+  # GBP/JPY
+  fxraw.gbpjpy <- data.frame(read.csv(paste("data/raw/", kGbpJpyRawFile))) # load GBP/USD raw data 
+  fxraw.gbpjpy <- select(fxraw.gbpjpy, X, GBPJPY.X.Close) # get only Date/Close using dplyr
+  names(fxraw.gbpjpy)[1] <- "date" # set column name for date
+  names(fxraw.gbpjpy)[2] <- "GBPJPY" # set column name for the close price GBP/JPY
+  
+  # augment all closing prices into one 
+  # create dataframe (date, GBP/EUR, GBP/USD, GBP/JPY)
+  fx.rates <- data.frame(fxraw.gbpeur$date, fxraw.gbpeur$GBPEUR, fxraw.gbpusd$GBPUSD, fxraw.gbpjpy$GBPJPY)
+  names(fx.rates)[1] <- "date" # set column name for date
+  names(fx.rates)[2] <- "GBPEUR" # set column name for the close price GBP/EUR
+  names(fx.rates)[3] <- "GBPUSD" # set column name for the close price GBP/USD
+  names(fx.rates)[4] <- "GBPJPY" # set column name for the close price GBP/JPY
+  
+  # only keep rows which do not have an NA value
+  fx.rates <- fx.rates[!is.na(fx.rates$GBPEUR) & !is.na(fx.rates$GBPUSD) & !is.na(fx.rates$GBPJPY), ] 
+  
+  # calculate log returns for each pair 
+  # LOG GBP/EUR
+  fxlog.gbpeur <- diff(log(fx.rates$GBPEUR)) # calculate log return 
+  fx.rates$GBPEURLOG <- c(NA, fxlog.gbpeur) # since lag one first element must be NA
+  # LOG GBP/USD 
+  fxlog.gbpusd <- diff(log(fx.rates$GBPUSD)) # calculate log return 
+  fx.rates$GBPUSDLOG <- c(NA, fxlog.gbpusd) # since lag one first element must be NA
+  # LOG GBP/JPY 
+  fxlog.gbpjpy <- diff(log(fx.rates$GBPJPY)) # calculate log return 
+  fx.rates$GBPJPYLOG <- c(NA, fxlog.gbpjpy) # since lag one first element must be NA
+  
+  # returns cleaned and augmented fx rates for three different pairs (GPB/EUR, GBP/USD, GBP/JPY) as a dataframe.
+  return(fx.rates)
 }
 
 # main function
@@ -69,16 +121,19 @@ main <- function() {
   # call setup function 
   setup() 
   
-  # clean brexit events data 
+  # clean/augment brexit events data 
   events.brexit <- clean.events()
   write.csv(events.brexit, file = paste("data/cleansed/", kEventsFile)) # saved cleaned brexit events
   print("Brexit events raw datasets cleaned, augmented and results saved.") # results saved (brexit events)
 
+  # clean/augment fx rates data 
+  fx.rates <- clean.fx()
+  write.csv(fx.rates, file = paste("data/cleansed/", kFxRatesFile)) # saved cleaned fx rates
+  print("Fx rates raw datasets cleaned, augmented and results saved.") # results saved (fx rates)
+  
   # results saved
   print("All data cleaning finished.")
 }
 
 main() # call main function to execute script 
-
-
 
