@@ -1,4 +1,4 @@
-"","GBPEUR=X.Open","GBPEUR=X.High","GBPEUR=X.Low","GBPEUR=X.Close","GBPEUR=X.Volume","GBPEUR=X.Adjusted"
+"","open","high","low","close","volume","adjusted_close"
 "2012-01-02",1.1974,1.1995,1.1961,1.1974,0,1.1974
 "2012-01-03",1.1992,1.1998,1.1943,1.1991,0,1.1991
 "2012-01-04",1.1982,1.2096,1.1978,1.1982,0,1.1982

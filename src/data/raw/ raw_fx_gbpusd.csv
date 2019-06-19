@@ -1,4 +1,4 @@
-"","GBPUSD=X.Open","GBPUSD=X.High","GBPUSD=X.Low","GBPUSD=X.Close","GBPUSD=X.Volume","GBPUSD=X.Adjusted"
+"","open","high","low","close","volume","adjusted_close"
 "2012-01-02",1.552602,1.554896,1.547604,1.551205,0,1.551205
 "2012-01-03",1.552096,1.5625,1.551109,1.552,0,1.552
 "2012-01-04",1.5647,1.567005,1.558263,1.564407,0,1.564407

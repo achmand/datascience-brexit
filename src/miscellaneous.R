@@ -9,9 +9,9 @@
 kApSource <- "https://www.bnnbloomberg.ca/timeline-of-brexit-and-events-leading-to-may-s-departure-1.1270161" 
 kJazzeraSource <- "https://www.aljazeera.com/news/2019/01/brexit-timeline-190115164043103.html" 
 
-# crypto sources 
-kBtcSource <- "https://coinmarketcap.com/currencies/bitcoin/historical-data/?start=20150501&end=20190614"
-kEthSource <- "https://coinmarketcap.com/currencies/ethereum/historical-data/?start=20150501&end=20190614"
+# commodities sources 
+kGoldSource <- "https://www.exchangerates.org.uk/commodities/XAU-GBP-history.html"
+kOilSource <- "https://www.exchangerates.org.uk/commodities/OIL-GBP-history.html"
 
 # brexit events filenames (news sites)
 kApRawFile <- "raw_events_ap.csv"
@@ -19,14 +19,22 @@ kJazzeraRawFile <- "raw_events_aljazzera.csv"
 kEventsFile <- "brexit_events.csv" # for cleaned/augmented events
 
 # fx rates filenames
-kGbpEurRawFile <- "raw_finance_gbpeur.csv"
-kGbpUsdRawFile <- "raw_finance_gbpusd.csv"
-kGbpJpyRawFile <- "raw_finance_gbpjpy.csv"
+kGbpEurRawFile <- "raw_fx_gbpeur.csv"
+kGbpUsdRawFile <- "raw_fx_gbpusd.csv"
+kGbpJpyRawFile <- "raw_fx_gbpjpy.csv"
 kFxRatesFile <- "fx_rates.csv" # for cleaned/augmented fx rates
 
 # crypto filenames 
-kBtcRawFile <- "raw_crypto_usdbtc.csv"
-kEthRawFile <- "raw_crypto_usdeth.csv"
+kBtcRawFile <- "raw_crypto_btcgbp.csv"
+kEthRawFile <- "raw_crypto_ethgbp.csv"
+
+# equity filenames 
+kFtse100RawFile <- "raw_index_ftse100.csv"
+kFtse250RawFile <- "raw_index_ftse250.csv"
+
+# commodities filenames 
+kXauGbpRawFile <- "raw_commodity_xau.csv" # gold 
+kOilGbpRawFile <- "raw_commodity_oil.csv" # oil 
 
 ################################################################################################################
 # FUNCTIONS ####################################################################################################
