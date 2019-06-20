@@ -64,8 +64,8 @@ main <- function() {
   jazzera.events <- collect.jazzera() # get from al jazzera - published on 15 January 2019
   
   # save raw results scraped from various news agencies
-  write.table(apnews.events, file = paste("data/raw/", kApRawFile), row.names = FALSE, col.names = FALSE, eol = "\n")
-  write.table(jazzera.events, file = paste("data/raw/", kJazzeraRawFile), row.names = FALSE, col.names = FALSE, eol = "\n")
+  write.table(apnews.events, file = paste("data/raw/", kApRawFile, sep=""), row.names = FALSE, col.names = FALSE, eol = "\n")
+  write.table(jazzera.events, file = paste("data/raw/", kJazzeraRawFile, sep=""), row.names = FALSE, col.names = FALSE, eol = "\n")
   
   # results saved
   print("Brexit events data is downloaded from news agencies and saved.")

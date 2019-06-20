@@ -86,17 +86,17 @@ main <- function () {
   commodity.oil <- collect.oilprices()  # OIL/GBP
   
   # save raw results for fx rates from yahoo finance
-  write.csv(fx.gbpeur, file = paste("data/raw/", kGbpEurRawFile)) # GBP/EUR
-  write.csv(fx.gbpusd, file = paste("data/raw/", kGbpUsdRawFile)) # GBP/USD
-  write.csv(fx.gbpjpy, file = paste("data/raw/", kGbpJpyRawFile)) # GBP/JPY
+  write.csv(fx.gbpeur, file = paste("data/raw/", kGbpEurRawFile, sep="")) # GBP/EUR
+  write.csv(fx.gbpusd, file = paste("data/raw/", kGbpUsdRawFile, sep="")) # GBP/USD
+  write.csv(fx.gbpjpy, file = paste("data/raw/", kGbpJpyRawFile, sep="")) # GBP/JPY
 
   # save raw results for crypto prices from yahoo finance
-  write.csv(crypto.btcgbp, file = paste("data/raw/", kBtcRawFile)) # BTC/GBP
-  write.csv(crypto.ethgbp, file = paste("data/raw/", kEthRawFile)) # ETH/GBP
+  write.csv(crypto.btcgbp, file = paste("data/raw/", kBtcRawFile, sep="")) # BTC/GBP
+  write.csv(crypto.ethgbp, file = paste("data/raw/", kEthRawFile, sep="")) # ETH/GBP
 
   # save raw results for commodities from exchangerates
-  write.csv(commodity.gold, file = paste("data/raw/", kXauGbpRawFile)) # XAU/GBP
-  write.csv(commodity.oil, file = paste("data/raw/", kOilGbpRawFile)) # OIL/GBP
+  write.csv(commodity.gold, file = paste("data/raw/", kXauGbpRawFile, sep="")) # XAU/GBP
+  write.csv(commodity.oil, file = paste("data/raw/", kOilGbpRawFile, sep="")) # OIL/GBP
 
   # results saved
   print("Data from Financial Markets was downloaded.")
