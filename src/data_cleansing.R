@@ -164,7 +164,7 @@ clean.indices <- function() {
   
   # load raw datasets
   index.ftse100 <- data.frame(read.csv(paste("data/raw/", kFtse100RawFile, sep=""))) # load FTSE100 raw data
-  index.ftse250 <- data.frame(read.csv(paste("data/raw/", kFtse100RawFile, sep=""))) # load FTSE250 raw data
+  index.ftse250 <- data.frame(read.csv(paste("data/raw/", kFtse250RawFile, sep=""))) # load FTSE250 raw data
   index.ftse100 <- select(index.ftse100, "Date", "Close.Price") # get only Date/Close using dplyr
   index.ftse250 <- select(index.ftse250, "Date", "Close.Price") # get only Date/Close using dplyr
   
@@ -208,9 +208,17 @@ clean.commodities <- function() {
   names(commodity.oil)[1] <- "date" # set column name for date
   names(commodity.oil)[2] <- "OILGBP" # set column name for the close price OIL/GBP
   
+  # remove empty values 
+  commodity.xau <- commodity.xau[commodity.xau$XAUGBP > 0, ] 
+  commodity.oil <- commodity.oil[commodity.oil$OILGBP > 0, ] 
+  
   # convert to standard format date 'yyyy-mm-dd'
   commodity.xau[["date"]] <- dmy(commodity.xau[["date"]])  
   commodity.oil[["date"]] <- dmy(commodity.oil[["date"]])  
+  
+  # sort by date for these datasets 
+  commodity.xau <- commodity.xau[order(as.Date(commodity.xau$date, format="%d/%m/%Y")),]
+  commodity.oil <- commodity.oil[order(as.Date(commodity.oil$date, format="%d/%m/%Y")),]
   
   # compute log returns 
   # LOG RETURNS XAU/GBP
