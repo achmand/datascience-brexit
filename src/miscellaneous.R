@@ -27,14 +27,20 @@ kFxRatesFile <- "fx_rates.csv" # for cleaned/augmented fx rates
 # crypto filenames 
 kBtcRawFile <- "raw_crypto_btcgbp.csv"
 kEthRawFile <- "raw_crypto_ethgbp.csv"
+kBtcFile <- "btc_prices.csv" # for cleaned BTC Prices
+kEthFile <- "eth_prices.csv" # for cleaned ETH Prices
 
 # equity filenames 
 kFtse100RawFile <- "raw_index_ftse100.csv"
 kFtse250RawFile <- "raw_index_ftse250.csv"
+kFtse100File <- "ftse100_prices.csv" # for cleaned FTSE100 Prices
+kFtse250File <- "ftse250_prices.csv" # for cleaned FTSE250 Prices
 
 # commodities filenames 
 kXauGbpRawFile <- "raw_commodity_xau.csv" # gold 
 kOilGbpRawFile <- "raw_commodity_oil.csv" # oil 
+kXauFile <- "xau_prices.csv" # for cleaned XAU/GBP Prices
+kOilFile <- "oil_prices.csv" # for cleaned OIL/GBP Prices
 
 ################################################################################################################
 # FUNCTIONS ####################################################################################################

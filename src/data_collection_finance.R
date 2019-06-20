@@ -82,7 +82,7 @@ main <- function () {
   crypto.ethgbp <- collect.yahoofinance(symbol = "ETH-GBP", from = kFromDate, to = kToDate) # ETH/GBP
 
   # get commodity prices from exchangerates 
-  commodity.gold <- collect.oilprices() # XAU/GBP
+  commodity.gold <- collect.goldprices() # XAU/GBP
   commodity.oil <- collect.oilprices()  # OIL/GBP
   
   # save raw results for fx rates from yahoo finance
