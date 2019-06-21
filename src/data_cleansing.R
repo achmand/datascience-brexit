@@ -1,5 +1,7 @@
 ################################################################################################################
 #
+# Cleans/augments datasets collected in the data collection stage. Both finance data and events data are cleaned
+# using this script.
 #
 ################################################################################################################
 
