@@ -1,4 +1,4 @@
-# Brexit Influence on the Financial Markets
+# Brexit Influence on various Financial Markets
 This is my final project for the ‘Statistics for Data Scientists’ for the ICS5115 study unit. The final results for this project is best viewed using nbviewer, click on the following link to view results [Jupyter Notebook](https://nbviewer.jupyter.org/github/achmand/datascience-brexit/blob/master/src/impact_of_major_brexit_events_on_various_financial_markets.ipynb). For a detailed explanation for this project read through the [research paper](https://github.com/achmand/datascience-brexit/blob/master/doc/Impact%20of%20major%20brexit%20events%20on%20various%20financial%20markets.pdf) or look at this [presentation](https://github.com/achmand/datascience-brexit/blob/master/doc/datascience-brexit.pdf) for an overview. 
 
 Resources for this project;
