@@ -19,7 +19,7 @@ IDE: [RStudio](https://www.rstudio.com/)
 
 ### R Packages
 The following libraries were used for this implementation. It must be noted that a function in the [miscellaneous.R](https://github.com/achmand/datascience-brexit/blob/master/src/miscellaneous.R) script called ‘lubripack(...)’ script was written to check if the package is already installed and if not the package is installed. So any libraries used are referenced using this function. 
-* vrest 
+* rvest 
 * quantmod
 * stringr
 * lubridate
